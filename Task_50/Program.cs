@@ -9,3 +9,49 @@
 17 -> такого числа в массиве нет
 */
 
+int rowsNumber = ReadInt("Введите номер строки: ");
+int columnsNumber = ReadInt("Введите номер столбца: ");
+int rows = 4, columns = 4;
+int[,] numbers = new int[rows, columns];
+
+Fill2DArray(numbers);
+Write2DArray(numbers);
+ChoiceElement(numbers);
+
+void ChoiceElement(int[,] numbers)
+{
+    if(rowsNumber > 0 && rowsNumber <= numbers.GetLength(0) && columnsNumber > 0 && columnsNumber <= numbers.GetLength(1))
+    {
+        Console.WriteLine($"Элемент [{rowsNumber},{columnsNumber}] = {numbers[rowsNumber - 1, columnsNumber - 1]}");
+    }
+    else {Console.WriteLine($"Элементa [{rowsNumber},{columnsNumber}] в массиве не существует");}
+}
+
+void Fill2DArray(int[,] numbers)
+{
+    for (int i = 0; i < numbers.GetLength(0); i++)
+    {
+     for (int j = 0; j < numbers.GetLength(1); j++)
+        {
+        numbers[i, j] = new Random().Next(-9, 10);
+        }
+    }
+}
+
+void Write2DArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
