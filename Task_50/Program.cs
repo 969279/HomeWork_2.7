@@ -55,3 +55,18 @@ int ReadInt(string message)
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine());
 }
+/*
+int[,] numbers = new int[,] { {1, 3, 4}, {5, 7, 9}};
+
+int position = Convert.ToInt32(Console.ReadLine());
+int row = position / 10;
+int column = position % 10;
+
+if(numbers.GetLength(0) <= row || numbers.GetLength(1) <= column)
+{
+    Console.WriteLine("Такой позиции нет");
+    return;
+}
+
+Console.WriteLine(numbers[row, column]);
+*/
